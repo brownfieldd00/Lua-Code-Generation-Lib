@@ -22,4 +22,10 @@ function lib:resolveVariable(name)
     if self.variables[name] then return self.variables[name] end
     return nil
 end
+function lib:findInstance(name, parent)
+    if parent then return parent:FindFirstChild(name) end
+    for i, v in pairs(getinstances()) do
+        if v.Name == name then return v end
+    end
+end
 return lib
